@@ -6,13 +6,9 @@ terraform {
   }
 }
 
-locals {
-  region = "eu-west-3"
-}
-
 provider "aws" {
   profile = "default"
-  region  = local.region
+  region  = var.region
 }
 
 module "vpc" {
