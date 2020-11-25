@@ -26,9 +26,9 @@ module "vpc" {
 }
 
 module "security-group" {
-  #source  = "app.terraform.io/rgomez-lab/security-group/aws"
-  #version = "0.0.1"
-  source   = "../modules/terraform-aws-security-group"
+  source   = "app.terraform.io/rgomez-lab/security-group/aws"
+  version  = "0.0.1"
+  #source   = "../modules/terraform-aws-security-group"
   vpc_id   = module.vpc.vpc_id
   vpc_name = module.vpc.vpc_name
   sg_name  = "sg-web"
