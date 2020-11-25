@@ -6,9 +6,13 @@ terraform {
   }
 }
 
+locals {
+  region = "eu-west-3"
+}
+
 provider "aws" {
   profile = "default"
-  region  = "eu-west-3"
+  region  = local.region
 }
 
 module "vpc" {
@@ -21,5 +25,5 @@ module "vpc" {
   private_subnets    = ["192.168.7.0/24", "192.168.8.0/24"]
   vpc_dns_hostnames  = true
   vpc_dns_support    = true
-  nat_gw             = true
+  nat_gw             = false
 }
